@@ -31,7 +31,7 @@ variable "vault_hvn" {
 variable "tier_type" {
     description = "Vault Cluster Tier Type"
     type = string
-    default = "starter_small"
+    default = "dev"
 }
 
 variable "vault_version" {
