@@ -2,9 +2,9 @@ data "terraform_remote_state" "approle" {
   backend = "remote"
 
   config = {
-    organization = "empower-sphere"
+    organization = "SecureOps_Project"
     workspaces = {
-      name = "tfc-create-vault-approle-auth-backend"
+      name = "Step08_Create_Approle_Auth_method"
     }
   }
 }
