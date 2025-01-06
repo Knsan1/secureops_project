@@ -1,7 +1,7 @@
 variable "workspace_name" {
   description = "Workspace Name"
   type        = string
-  default     = "Step10_Create_Ec2_Vault_AWS_Auth_method" ### have to change WorkSpace Name
+  default     = "Step10_Create_DB_Secret_Engine" ### have to change WorkSpace Name
 }
 variable "org_name" {
   description = "Organization Name"
