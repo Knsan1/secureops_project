@@ -16,7 +16,7 @@ variable "vault_url" {
 variable "run_role" {
   description = "TFC_VAULT_RUN_ROLE"
   type        = string
-  default     = "tfc-aws-secret-role"
+  default     = "tfc-admin-role"
 }
 variable "vault_namespace" {
   description = "TFC_VAULT_NAMESPACE"
@@ -24,23 +24,23 @@ variable "vault_namespace" {
   default     = "admin"
 }
 
-variable "aws_mount_path" {
-  description = "TFC_VAULT_BACKED_AWS_MOUNT_PATH"
-  type        = string
-  default     = "aws-master-account"
-}
+# variable "aws_mount_path" {
+#   description = "TFC_VAULT_BACKED_AWS_MOUNT_PATH"
+#   type        = string
+#   default     = "aws-master-account"
+# }
 
-variable "aws_auth_type" {
-  description = "TFC_VAULT_BACKED_AWS_AUTH_TYPE"
-  type        = string
-  default     = "iam_user"
-}
+# variable "aws_auth_type" {
+#   description = "TFC_VAULT_BACKED_AWS_AUTH_TYPE"
+#   type        = string
+#   default     = "iam_user"
+# }
 
-variable "aws_secret_role" {
-  description = "TFC_VAULT_BACKED_AWS_RUN_VAULT_ROLE"
-  type        = string
-  default     = "master-iamadmin-role"
-}
+# variable "aws_secret_role" {
+#   description = "TFC_VAULT_BACKED_AWS_RUN_VAULT_ROLE"
+#   type        = string
+#   default     = "master-iamadmin-role"
+# }
 
 variable "aws_region" {
   description = "AWS_REGION"
@@ -48,8 +48,8 @@ variable "aws_region" {
   default     = "ap-southeast-1"
 }
 
-# variable "tfc_aws_run_role_arn" {
-#   description = "AWS Role for TFC Provider"
-#   type        = string
-#   default     = "tfc-aws-role"
-# }
+variable "tfc_aws_run_role_arn" {
+  description = "AWS Role for TFC Provider"
+  type        = string
+  default     = "arn:aws:iam::230788615808:role/tfc-aws-role"
+}
