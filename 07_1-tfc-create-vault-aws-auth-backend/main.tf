@@ -23,6 +23,11 @@ resource "vault_aws_auth_backend_client" "main" {
 //--------------------------------------------------------------------------------------------
 //-Configure a Vault Dedicated role to authenticate AWS services with a trusted AWS IAM role.
 //--------------------------------------------------------------------------------------------
+resource "time_sleep" "wait_before_creating_iam_role" {
+  depends_on      = [aws_iam_role.vault-client]
+  create_duration = "90s"
+}
+
 resource "vault_aws_auth_backend_role" "main" {
   backend                         = vault_auth_backend.main.path
   role                            = var.aws_auth_role
@@ -32,7 +37,7 @@ resource "vault_aws_auth_backend_role" "main" {
   token_max_ttl                   = 1200
   token_policies                  = [vault_policy.mysql-policy.name]
 
-  depends_on = [ aws_iam_role.vault-client ]
+  depends_on = [time_sleep.wait_before_creating_iam_role]
 }
 
 //------------------------------------------------
